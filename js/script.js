@@ -33,3 +33,45 @@ Sommiamo i due numeri
 Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
 Dichiariamo chi ha vinto.
 */
+const section2 = document.getElementById('even&odd');
+const even = document.getElementById('even');
+const odd = document.getElementById('odd');
+let number = document.getElementById('chosen');
+const sendNumBtn = document.getElementById('sendNum');
+let div = document.createElement('div');
+div.setAttribute('id', 'answ2');
+div.className='my-3', 'fw-bold';
+div.innerHTML = '';
+section2.append(div);
+
+function evenNodd (){
+    if(number.value > 5){
+        div.innerHTML = '';
+        section2.append(notificationError('Devi inserire un numero compreso tra 1 e 5!'));
+    } else{
+        let random = randomNumber(1, 5);
+        console.log(random)
+        let result = parseInt(number.value) + random;
+        div.innerHTML = `Hai scelto il numero ${number.value} a noi come valore randomico è uscito il ${random}, <br>
+        quindi la loro somma è ${result}.......`;
+        result = isEven(result);
+    
+        
+        if (even.checked && result){
+            div.innerHTML += 'Hai Vinto!!' 
+        } else if (odd.checked && (!result)){
+            div.innerHTML += 'Hai Vinto!!' 
+        } else{
+            div.innerHTML += 'Hai Perso.'
+        }
+
+    }
+    even.checked =false;
+    odd.checked =false;
+    number.value ='';
+
+   
+};
+
+sendNumBtn.addEventListener('click', evenNodd)
+

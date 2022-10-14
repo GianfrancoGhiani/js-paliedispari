@@ -19,12 +19,4 @@ function removeFirstNotification(){
     console.log(alertToRemove);
    if(alertToRemove) alertToRemove.remove();
 }
-const parola = 'pippo';
-const parolaLen = parola.length;
-let parolaGirata = parola.split('').reverse().join('');
-// for(let i = parolaLen - 1; i >= 0; i-- ){
-//     parolaGirata += parola.charAt(i);
-// }
-console.log(parolaGirata);
-
 
