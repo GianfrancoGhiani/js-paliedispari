@@ -1,10 +1,28 @@
+'use strict'
 /*
 Palidroma
 Chiedere all’utente di inserire una parola
 Creare una funzione per capire se la parola inserita è palindroma
 */
+let userText = document.getElementById('userText');
+const sendTextBtn = document.getElementById('sendText');
+const answ1 = document.getElementById('answ1');
+let userTextAnalize = '';
+let userTextRev = '';
 
-
+sendTextBtn.addEventListener('click', function palindrome(){
+    userTextAnalize = userText.value
+    userTextRev = userTextAnalize.split('');
+    userTextRev = userTextRev.reverse().join('');
+    const showText = document.createElement('p');
+    answ1.innerHTML= '';
+    if (!(userTextAnalize === userTextRev)){
+        showText.innerText = "Non ";
+    }
+    showText.innerText += "è una parola palindroma";
+    answ1.append(showText);
+    userText.value = '';
+}); 
 
 
 /*
